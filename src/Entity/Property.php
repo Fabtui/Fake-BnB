@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PropertyRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
@@ -102,12 +103,17 @@ class Property
     {
         return $this->title;
     }
-
+    
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
+        
         return $this;
+    }
+
+    public function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->title);
     }
 
     public function getDescription(): ?string
@@ -175,6 +181,11 @@ class Property
         return $this->price;
     }
 
+    public function getFormatedPrice(): string
+    {
+        return number_format($this->price, 0, '', ' ');
+    }
+
     public function setPrice(int $price): self
     {
         $this->price = $price;
@@ -185,6 +196,11 @@ class Property
     public function getHeat(): ?int
     {
         return $this->heat;
+    }
+
+    public function getHeatType(): string
+    {
+        return self::HEAT[$this->heat];
     }
 
     public function setHeat(int $heat): self
@@ -230,14 +246,14 @@ class Property
         return $this;
     }
 
-    public function getSolde(): ?bool
+    public function getSold(): ?bool
     {
-        return $this->solde;
+        return $this->sold;
     }
 
-    public function setSolde(bool $solde): self
+    public function setSold(bool $sold): self
     {
-        $this->solde = $solde;
+        $this->sold = $sold;
 
         return $this;
     }
