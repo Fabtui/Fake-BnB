@@ -2,6 +2,9 @@
     "cocur/slugify": {
         "version": "v4.0.0"
     },
+    "components/jquery": {
+        "version": "1.9.1"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
@@ -109,6 +112,15 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
+    "knplabs/knp-components": {
+        "version": "v3.5.0"
+    },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v5.8.0"
+    },
+    "kriswallsmith/assetic": {
+        "version": "v1.0.5"
+    },
     "laminas/laminas-code": {
         "version": "4.5.0"
     },
@@ -185,6 +197,9 @@
     },
     "psr/log": {
         "version": "3.0.0"
+    },
+    "robloach/component-installer": {
+        "version": "0.0.12"
     },
     "sebastian/cli-parser": {
         "version": "1.0.1"
