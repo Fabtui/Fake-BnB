@@ -4,16 +4,46 @@
 
 {% block body %}
 <div class='container text-center mt-4'>
+
+  {% for message in app.flashes('success') %}
+  <div class="alert alert-success">
+      {{ message }}
+  </div>
+  {% endfor %}
+
+  {% if not form.vars.valid %}
+  <div class="alert alert-danger">
+      Error in the form
+  </div>
+  {% endif %}
+
   <div class='row'>
-    <div class='col-md-8'>
+    <div class='col-md-8' style='background-color: #CCCCCC;'>
+      <img src="{{ '/images/properties/300.png'}}">
     </div>
-    <div class='col-md-4'>
+    <div class='col-md-4' style='background-color: rgb(250, 250, 250);'>
       <h1>{{ property.title }}</h1>
       <h2>{{ property.rooms }} rooms - {{ property.surface }} m2</h2>
       <div class='text-primary' style='font-size: 2rem;'>
         {{ property.formatedPrice }} $
       </div>
-      <a href="" class='btn btn-primary mt-4'>Contact us</a>
+      <a href="" class='btn btn-primary mt-4 mb-4'>Contact us</a>
+      <div id="contactForm" class="mt-4">
+      {{ form_start(form) }}
+      <div class="row">
+        <div class="col-md-6">{{ form_row(form.firstname) }}</div>
+        <div class="col-md-6">{{ form_row(form.lastname) }}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">{{ form_row(form.phone) }}</div>
+        <div class="col-md-6">{{ form_row(form.mail) }}</div>
+      </div>
+      {{ form_rest(form) }}
+      <div class="form-group">
+      <button class="btn btn-primary mt-4 mb-4">Send</button>
+      </div>
+      {{ form_end(form) }}
+      </div>
     </div>
   </div>
       <nav class="nav nav-tabs mt-4" id='tab'></nav>
