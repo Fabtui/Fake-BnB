@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@symfony/stimulus-bridge": "^2.0.0",
+    "@symfony/webpack-encore": "^1.7.0",
+    "webpack-notifier": "1.6.0"
+  },
+  "dependencies": {
+    "babel-preset-es2017": "^6.24.1"
+  }
+}
